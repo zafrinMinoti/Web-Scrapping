@@ -20,10 +20,16 @@ def get_movie_titles(req_obj_text, movie_rank):
     return movie_rank
 
 
-top_movies = dict()
-root_url = "https://www.pastemagazine.com/articles/2017/12/the-50-best-movies-of-2017.html?p="
-for page in [1,2]:
-    r = requests.get(root_url+str(page))
-    top_movies = get_movie_titles(r.text, top_movies)
+def main():
+	top_movies = dict()
+	root_url = "https://www.pastemagazine.com/articles/2017/12/the-50-best-movies-of-2017.html?p="
+	for page in [1,2]:
+	    r = requests.get(root_url+str(page))
+	    top_movies = get_movie_titles(r.text, top_movies)
 
-print(top_movies)
+	return top_movies
+
+if __name__ == "__main__":
+	main()
+
+
